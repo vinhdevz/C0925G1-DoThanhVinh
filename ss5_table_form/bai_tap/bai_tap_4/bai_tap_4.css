@@ -1,0 +1,32 @@
+.heading{
+    text-align: center;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin: auto;
+}
+th, td{
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+th{
+    background: yellow;
+}
+.heading2{
+    text-align: center;
+    color: blue;
+}
+.table2{
+    border: none;
+}
+.table2_left{
+    border: none;
+    text-align: left;
+}
+.table2_right{
+    text-align: right;
+    border: none;
+}
