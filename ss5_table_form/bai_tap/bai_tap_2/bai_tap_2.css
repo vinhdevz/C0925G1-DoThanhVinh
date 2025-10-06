@@ -1,0 +1,55 @@
+body {
+    color: blue;
+}
+.heading {
+    font-size: 2em;
+    background-color: aquamarine;
+}
+.form_hei{
+    padding-left: 30px;
+}
+.form {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+.form label {
+    width: 120px;
+    color: blue;
+    font-weight: normal;
+}
+.form_hei3 {
+    height: 60px;
+}
+
+.form_hei1 {
+    gap: 15px;
+}
+.but {
+    padding-left: 130px;
+}
+
+
+.heading2 {
+    text-align: center;
+    background-color: red;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 6px;
+}
+
+.right {
+    padding-left: 70px;
+}
+
+.righter {
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+
+.righte {
+    padding-left: 100px;
+}
+.butt{
+    padding-left: 10px;
+}
