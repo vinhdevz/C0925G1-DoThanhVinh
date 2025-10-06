@@ -1,0 +1,44 @@
+.chess {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+}
+
+.chess:nth-child(odd) .chess:nth-child(odd) {
+    background-color: white;
+}
+
+.chess:nth-child(even) .chess:nth-child(even) {
+    background-color: white;
+}
+
+.number {
+    text-align: center;
+    font-weight: bold;
+}
+
+.Day {
+    border-collapse: collapse;
+    border: 1px solid orange;
+    background-color: orange;
+    color: white;
+}
+.Day1 {
+    text-align: center;
+}
+.td1-blue{
+    color: blue;
+}
+.td2-2{
+    color: black;
+}
+.table2{
+    border: 1px solid gray;
+    text-align: center;
+}
+.td1-red{
+    color: red;
+}
+.td2-1{
+    color: black;
+}
