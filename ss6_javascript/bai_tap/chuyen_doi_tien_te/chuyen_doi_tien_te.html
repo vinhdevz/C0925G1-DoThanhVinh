@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Chuyển đổi tiền tệ</h2>
+    <label>
+        <input id="usd" type="number" placeholder="Nhập số tiền cần đổi:">
+    </label>
+    <button onclick="chuyenDoi()">Chuyển đổi</button>
+    <div id="ketQua"></div>
+</body>
+<script>
+    function chuyenDoi() {
+        let usd = parseFloat(document.getElementById('usd').value);
+        let tiGia = 25000;
+        let vnd = usd * tiGia;
+        document.getElementById('ketQua').innerText =
+            `
+                ${usd} USD: = ${vnd.toLocaleString()} VND
+            `;
+    }
+
+</script>
+</html>
