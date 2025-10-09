@@ -11,6 +11,20 @@
         <button onclick="tinhDienTich()">Tính diện tích</button>
         <div id="ketQua"></div>
     </label>
+<script>
+    function tinhDienTich(){
+        let r = parseFloat(document.getElementById("banKinh").value);
+
+        if(isNaN(r) || r<= 0){
+            alert("Hãy nhập bán kính!");
+            return;
+        }
+        let S = Math.PI * r * r;
+        document.getElementById("ketQua").innerHTML = `
+        Diện tích hình tròn là:
+        <b>${S.toFixed(2)}</b>
+    `;
+    }
+</script>
 </body>
 </html>
-<script src="bai_tap_1-3.js"></script>

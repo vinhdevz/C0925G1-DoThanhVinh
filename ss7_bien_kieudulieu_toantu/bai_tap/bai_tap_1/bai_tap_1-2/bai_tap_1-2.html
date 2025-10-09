@@ -5,10 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Chuyển đổi độ C sang độ F</h2>
-    <input id="c" type="number" placeholder="Độ c (Celsius)">
-<button onclick="chuyenDoi()">Nhập</button>
-<div id="output"></div>
+    <h2>Chuyển đổi nhiệt độ</h2>
+    <label>
+        <input id="doC" type="number" placeholder="Nhập độ C:">
+    </label>
+    <button onclick="chuyenDoiND()">Chuyển đổi</button>
+    <div id="ketQua"></div>
+    <script>
+        function chuyenDoiND(){
+            let doC = parseFloat(document.getElementById('doC').value);
+            if(isNaN(doC)){
+                alert("Bạn vui lòng nhập độ C!");
+                return;
+            }
+            let doF = (doC * 9/5) + 32;
+            document.getElementById('ketQua').innerHTML =
+            doC + 'C =' +doF.toFixed(2) + 'F';
+        }
+    </script>
 </body>
 </html>
-<script src="bai_tap_1-2.js"></script>

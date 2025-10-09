@@ -6,14 +6,35 @@
     <title>Title</title>
 </head>
 <body>
-    <h2>Điểm trung bình của học sinh</h2>
-    <label>
-        <input id="vatly" class="number1" type="number" placeholder="Điểm môn vật lý"><br>
-        <input id="hoahoc" class="number1" type="number" placeholder="Điểm môn hóa học"><br>
-        <input id="sinhhoc" class="number1" type="number" placeholder="Điểm môn sinh học"><br>
-        <button onclick="tongDiemTB()">Tổng điểm</button>
-        <div id="diemTB"></div>
-    </label>
+<h2>Điểm trung bình của học sinh</h2>
+<label>
+    <input id="vatly" class="number1" type="number" placeholder="Điểm môn vật lý"><br>
+    <input id="hoahoc" class="number1" type="number" placeholder="Điểm môn hóa học"><br>
+    <input id="sinhhoc" class="number1" type="number" placeholder="Điểm môn sinh học"><br>
+    <button class="button" onclick="tongDiem()">Tổng điểm</button>
+    <br>
+    <div id="diemTB"></div>
+</label>
+<script>
+    function tongDiem() {
+        let hoahoc = parseFloat(document.getElementById("hoahoc").value);
+        let vatly = parseFloat(document.getElementById("vatly").value);
+        let sinhhoc = parseFloat(document.getElementById("sinhhoc").value);
+
+        if (isNaN(hoahoc) || isNaN(vatly) || isNaN(sinhhoc)) {
+            document.getElementById("diemTB").innerText = "Hãy nhập điểm của bạn";
+            return;
+        }
+        let diemTB = (hoahoc + vatly + sinhhoc) / 3;
+        let tong = (hoahoc + vatly + sinhhoc)
+        document.getElementById("diemTB").innerHTML =
+            `
+        Điểm trung bình của bạn là :
+        <b>${diemTB.toFixed(2)}</b><br>
+        Tổng điểm là:
+        <b>${tong.toFixed(2)}</b>
+    `;
+    }
+</script>
 </body>
 </html>
-<script src="bai_tap_1-1.js"></script>

@@ -7,10 +7,23 @@
 <body>
     <h2>Chu vi hình tròn</h2>
 <label>
-    <input id="chuVi" type="number" placeholder="Nhập:">
+    <input id="chuVi" type="number" placeholder="Nhập bán kính:">
     <button onclick="tinhChuViHT()">Tính</button>
     <div id="ketQua"></div>
 </label>
+<script>
+    function tinhChuViHT(){
+        let r = parseFloat(document.getElementById('chuVi').value);
+
+        if(isNaN(r) || r <= 0){
+            alert("Hãy nhập bán kính!");
+        }
+        let C = 2 * Math.PI * r;
+        document.getElementById('ketQua').innerHTML = `
+        Chu vi hình tròn là:
+        <b>${C.toFixed(2)}</b>
+    `;
+    }
+</script>
 </body>
 </html>
-<script src="bai_tap_1-4.js"></script>
