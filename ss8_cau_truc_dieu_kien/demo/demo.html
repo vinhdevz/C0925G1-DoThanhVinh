@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <h2>Kiểm tra số dương hay âm</h2>
+    <label>
+        <input id="num" type="number" placeholder="Nhập số:">
+        <button type="button" onclick="kiemTra()">Kiểm tra</button>
+    </label>
+    <div id="ketQua"></div>
 </body>
+<script>
+    function kiemTra(){
+        let n = Number(document.getElementById('num').value);
+        let kq = "";
+        if (n > 0){
+            kq = "Số dương";
+        }
+        else if (n < 0){
+            kq = "Số âm";
+        }
+        else {
+            kq = "Số bằng 0";
+        }
+        document.getElementById('ketQua').innerText = kq;
+    }
+</script>
 </html>

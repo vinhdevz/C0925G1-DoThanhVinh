@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <h2>Điểm trung bình của học sinh</h2>
+    <label>
+        <input id="dtb" type="number" placeholder="Nhập điểm của bạn:">
+        <button type="button" onclick="xepLoai()">Xếp loại</button>
+    </label>
+    <div id="xepLoai"></div>
 </body>
+<script>
+    function xepLoai(){
+        let diem = Number(document.getElementById('dtb').value);
+        let loai = "";
+
+        if(diem >= 8){
+            loai = "Giỏi";
+        }
+        else if (diem >= 6){
+            loai = "Khá";
+        }
+        else if (diem >= 5){
+            loai = "Trung bình";
+        }
+        else {
+            loai = "Yếu"
+        }
+        document.getElementById('xepLoai').innerText = "Xếp loại:" +loai;
+    }
+</script>
 </html>

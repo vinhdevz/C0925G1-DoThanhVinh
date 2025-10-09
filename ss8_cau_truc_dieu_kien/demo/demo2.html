@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <h2>Tính tiền điện theo bậc thang</h2>
+    <label>
+        <input type="number" id="kWh" placeholder="Nhập số kWh:">
+        <button type="button" onclick="tinhTien()">Tính tiền</button>
+    </label>
+    <div id="soTien"></div>
 </body>
+<script>
+    function tinhTien() {
+        let kwh = Number(document.getElementById('kWh').value);
+        let tien = 0;
+        if (kwh <= 50){
+            tien = kwh * 1700;
+        }
+        else if (kwh <= 100){
+            tien = 50 * 1700 + (kwh - 50) * 2000;
+        }
+        else if (kwh <= 200){
+            tien = 50 * 1700 + 50 * 2000 + (kwh - 100) * 2500;
+        }
+        else {
+            tien = 50 * 1700 + 50 * 2000 + 50 * 2500 + (kwh - 200) * 3000;
+        }
+        document.getElementById('soTien').innerText = "Tiền điện:" + tien.toLocaleString() + "VNĐ";
+    }
+</script>
 </html>
