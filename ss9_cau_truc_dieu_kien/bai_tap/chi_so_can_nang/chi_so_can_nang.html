@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Tính chỉ số cân nặng cơ thể</h2>
+    <label>
+        <input type="number" id="canNang" placeholder="Cân nặng của bạn:"><br><br>
+        <input type="number" id="chieuCao" placeholder="Chiều cao của bạn:" step="0.1">
+        <button onclick="tinhBMI()">Tính BMI</button>
+    </label>
+    <div id="ketQua"></div>
+</body>
+<script>
+    function tinhBMI(){
+        let canNang = parseFloat(document.getElementById('canNang').value);
+        let chieuCao = parseFloat(document.getElementById('chieuCao').value);
+
+        if(isNaN(canNang) || isNaN(chieuCao) || chieuCao <= 0){
+            alert("Vui lòng nhập đầy đủ và đúng thông tin");
+            return;
+        }
+        let bmi = canNang / (chieuCao * chieuCao);
+        let ketLuan = "";
+        if (bmi < 18.5){
+            ketLuan = "Bạn bị gầy";
+        }else if (bmi < 25){
+            ketLuan = "Bạn có cân nặng bình thường";
+        }else  if (bmi < 30){
+            ketLuan = "Bạn đang thừa cân";
+        }else {
+            ketLuan = "Bạn đang béo phì";
+        }
+        document.getElementById("ketQua").innerHTML =
+            `Chỉ số BMI của bạn là:
+                <b>${bmi.toFixed(2)}</b> - ${ketLuan}
+            `;
+    }
+</script>
+</html>
