@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính cơ bản</title>
+    <style>
+        button{
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <label>
+        <input type="text" id="view">
+    </label>
+
+    <table>
+        <tr class="number">
+            <td>
+                <button type="button" onclick="input('1')">1</button>
+            </td>
+            <td>
+                <button type="button" onclick="input('2')">2</button>
+            </td>
+            <td>
+                <button type="button" onclick="input('3')">3</button>
+            </td>
+            <td>
+                <button type="button" onclick="input('+')">+</button>
+            </td>
+        </tr>
+        <tr class="number">
+            <td>
+                <button type="button" onclick="input(4)">4</button>
+            </td>
+            <td>
+                <button type="button" onclick="input(5)">5</button>
+            </td>
+            <td>
+                <button type="button" onclick="input(6)">6</button>
+            </td>
+            <td>
+                <button type="button" onclick="input('-')">-</button>
+            </td>
+        </tr>
+        <tr class="number">
+            <td>
+                <button type="button" onclick="input(7)">7</button>
+            </td>
+            <td>
+                <button type="button" onclick="input(8)">8</button>
+            </td>
+            <td>
+                <button type="button" onclick="input(9)">9</button>
+            </td>
+            <td>
+                <button type="button" onclick="input('*')">*</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="reset()">AC</button>
+            </td>
+            <td>
+                <button type="button" onclick="input(0)">0</button>
+            </td>
+            <td>
+                <button type="button" onclick="calculation()">=</button>
+            </td>
+            <td>
+                <button type="button" onclick="input('/')">/</button>
+            </td>
+        </tr>
+    </table>
+</main>
+<script>
+    let view=document.getElementById("view");
+    function input(value) {
+        view.value += value
+    }
+    function calculation() {
+        let result = eval(view.value);
+        view.value = result;
+    }
+    function reset() {
+        view.value = "";
+    }
+</script>
+</body>
+</html>

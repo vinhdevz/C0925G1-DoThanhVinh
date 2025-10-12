@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <p>Select a new car from the list</p>
+<!--    onchange="do_somthing()-->
+    <select id="mySelect" >
+        <option value="Volvo">Volvo</option>
+        <option value="Saab">Saab</option>
+        <option value="Mercedes">Mercedes</option>
+        <option value="Audi">Audi</option>
+    </select>
+<script>
+    // function do_somthing() {
+    //     var selectedValue = document.getElementById("mySelect").value;
+    //     alert(selectedValue);
+    // }
+
+    var selectedElement = document.getElementById('mySelect');
+    selectedElement.addEventListener('change', changgeFunction);
+    function changgeFunction(e) {
+        var selectValue = document.getElementById('mySelect').value;
+        alert(selectValue);
+    }
+</script>
 </body>
 </html>

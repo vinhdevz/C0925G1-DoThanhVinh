@@ -1,10 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Demo</title>
 </head>
 <body>
-$END$
+<h1 style="text-align: center">Demo JavaScript</h1>
+<p style="text-align: center">Nhấn các nút bên dưới để xem JavaScript hoạt động</p>
+<div class="gr-button">
+    <button class="button" onclick="demoBien()">Biến và kiểu dữ liệu</button>
+    <br>
+    <button class="button" onclick="demoToanTu()">Toán tử</button>
+    <br>
+    <button class="button" onclick="demoDieuKien()">Cấu trúc điều kiện</button>
+    <br>
+    <button class="button" onclick="demoHam()">Hàm</button>
+    <br>
+    <button class="button" onclick="demoVongLap()">Vòng Lặp</button>
+</div>
+<br>
+<br>
+<div style="text-align: center" id="output">Kết quả sẽ hiển thị ở đây...</div>
+
+<script>
+    //Biến và kiểu dữ liệu
+    function demoBien() {
+        let ten = "Vinn";
+        const tuoi = 21;
+        let diemTB = 9;
+        let gioiTinh = true;
+
+        document.getElementById("output").innerHTML = `
+      <b>Biến và kiểu dữ liệu:</b><br>
+      Tên : ${ten}<br>
+      Tuổi : ${tuoi}<br>
+      Điểm trung bình : ${diemTB}<br>
+      Giới tính : ${gioiTinh ? "Nam" : "Nữ"}<br>
+    `;
+    }
+
+    //Toán tử
+    function demoToanTu() {
+        let a = 10, b = 8;
+        document.getElementById('output').innerHTML = `
+            <b>Toán tử số học</b><br>
+            a = ${a}, b = ${b}<br>
+            a + b = ${a + b}<br>
+            a - b = ${a - b}<br>
+            a * b = ${a * b}<br>
+            a / b = ${(a / b).toFixed(2)}<br>
+            a % b = ${a % b}<br>
+            <b>Toán tử so sánh:</b><br>
+            a > b -> ${a > b}<br>
+            a == b -> ${a == b}<br>
+            a === b -> ${a === b}<br>
+        `;
+    }
+
+    //Cấu trúc điều kiện
+    function demoDieuKien() {
+        let diem = parseFloat(prompt("Nhập điểm trung bình của bạn:"));
+
+        if (isNaN(diem)) {
+            document.getElementById("output").innerText = "Bạn phải nhập số hợp lệ!";
+            return;
+        }
+
+        let xepLoai =
+            diem >= 8 ? "Giỏi" :
+                diem >= 6.5 ? "Khá" :
+                    diem >= 5 ? "Trung bình" :
+                        "Yếu";
+        document.getElementById("output").innerHTML =
+            `<b>Điểm bạn nhập:</b> ${diem}<br>
+             <b>Xếp loại:</b> ${xepLoai}<br>`;
+    }
+
+    //Hàm
+    function tinhTong(a, b) {
+        return a + b;
+    }
+
+    function demoHam() {
+        let so1 = parseFloat(prompt("Nhập số thứ nhất:"));
+        let so2 = parseFloat(prompt("Nhập số thứ hai:"));
+        if (isNaN(so1) || isNaN(so2)) {
+            document.getElementById("output").innerText = "Vui lòng nhập hai số hợp lệ!";
+            return;
+        }
+        let ketQua = tinhTong(so1, so2);
+        document.getElementById("output").innerHTML = `
+            <b>Hàm tính tổng:</b><br>
+            Số 1: ${so1}<br>
+            Số 2: ${so2}<br>
+            Tổng = ${ketQua}
+        `;
+    }
+
+    //Vòng lặp
+    function demoVongLap() {
+        let text = "";
+        for (let i = 1; 1 <= 5; i++) {
+            text += `Lần gặp thứ ${i}<br>`;
+        }
+        document.getElementById("output").innerHTML = `
+            <b>Vòng lăp for:</b><br>${text}
+        `;
+    }
+</script>
+
 </body>
 </html>

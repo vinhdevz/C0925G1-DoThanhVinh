@@ -31,23 +31,23 @@
 
 <script>
     function chuyenDoiTT() {
-        let Amount = parseFloat(document.getElementById('Amount').value);
-        let From = document.getElementById('From').value;
-        let To = document.getElementById('To').value;
+        let amount = parseFloat(document.getElementById('Amount').value);
+        let from = document.getElementById('From').value;
+        let to = document.getElementById('To').value;
         let tiGia = 25000;
         let ketQua = "";
 
-        if (isNaN(Amount) || Amount <= 0) {
+        if (isNaN(amount) || amount <= 0) {
             alert("Vui lòng nhập số tiền hợp lệ!");
             return;
         }
 
-        if (From === "USD" && To === "VND") {
-            ketQua = "Kết quả: " + (Amount * tiGia).toLocaleString() + " VND";
-        } else if (From === "VND" && To === "USD") {
-            ketQua = "Kết quả: " + (Amount / tiGia).toFixed(2) + " USD";
+        if (from === "USD" && to === "VND") {
+            ketQua = "Kết quả: " + (amount * tiGia).toLocaleString() + " VND";
+        } else if (from === "VND" && to === "USD") {
+            ketQua = "Kết quả: " + (amount / tiGia).toFixed(2) + " USD";
         } else {
-            ketQua = "Kết quả: " + Amount.toLocaleString() + " " + To;
+            ketQua = "Kết quả: " + amount.toLocaleString() + " " + to;
         }
 
         document.getElementById('ketQua').innerText = ketQua;
