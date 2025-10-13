@@ -8,7 +8,11 @@
 <script>
     let doC = +prompt("Nhập độ C");
     let doF = doC * 9 / 5 + 32;
-    alert(`Nhiệt độ sau khi thay đổi là: ${doF} độ F `);
+    if (doC < -273) {
+        alert("Nhiệt độ không thích hợp");
+    } else {
+        alert(`Nhiệt độ sau khi thay đổi là: ${doF} độ F `);
+    }
 </script>
 </body>
 </html>
