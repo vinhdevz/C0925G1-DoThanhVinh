@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Máy tính cơ bản</title>
     <style>
-        button{
+        button {
             width: 30px;
         }
     </style>
@@ -75,14 +75,17 @@
     </table>
 </main>
 <script>
-    let view=document.getElementById("view");
+    let view = document.getElementById("view");
+
     function input(value) {
         view.value += value
     }
+
     function calculation() {
         let result = eval(view.value);
         view.value = result;
     }
+
     function reset() {
         view.value = "";
     }
