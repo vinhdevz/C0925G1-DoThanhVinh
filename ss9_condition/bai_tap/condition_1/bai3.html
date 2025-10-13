@@ -7,7 +7,14 @@
 <body>
 <script>
     let soNguyen = +prompt("Nhập số:");
-    soNguyen > 0 ? alert("Số lớn hơn 0") : soNguyen === 0 ? alert("Số bằng 0") : alert("Số bé hơn 0");
+    soNguyen > 0
+    if (soNguyen > 0) {
+        alert("Số lớn hơn 0");
+    } else if (soNguyen === 0) {
+        alert("Số bằng 0");
+    } else {
+        alert("Số bé hơn 0");
+    }
 </script>
 </body>
 </html>
