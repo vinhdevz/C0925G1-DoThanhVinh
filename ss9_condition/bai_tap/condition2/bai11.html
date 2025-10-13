@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let money =+ prompt("Nhập thu nhập của bạn tháng này: ");
+    if(money < 10000000){
+        alert("Không cần nạp thuế");
+    }
+    else if(money < 20000000){
+        alert(` Thuế thu nhập của bạn là: ${money*10/100}`);
+    }
+    else {
+        alert(` Thuế thu nhập của bạn là: ${money*30/100}`);
+    }
+</script>
+</body>
+</html>

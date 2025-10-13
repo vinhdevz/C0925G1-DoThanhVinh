@@ -7,6 +7,17 @@
 <body>
 <script>
     let soDien =+ prompt("Nhập số điện(kWh) đã dùng trong tháng");
+    let money = 0;
+    if (soDien <=80){
+        money = soDien * 5000;
+    }
+    else if(soDien <= 120){
+        money = 80 * 5000 + (soDien -80) * 7000;
+    }
+    else {
+        money = 80 * 5000 + 40 * 7000 + (soDien - 120) * 10000;
+    }
+    alert(` Tiền điện của bạn là: ${money.toLocaleString()} VNĐ`);
 </script>
 </body>
 </html>
