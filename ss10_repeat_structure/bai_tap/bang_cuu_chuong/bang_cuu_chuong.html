@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng cửu chương</title>
+    <style>
+        td {
+            border: 1px solid black;
+            padding: 6px 10px;
+            text-align: center;
+        }
+        caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<table id="bang"></table>
+
+<script>
+    let table = `<caption>Bảng cửu chương 2 → 9</caption>`;
+
+    for (let i = 2; i <= 9; i++) {
+        table += "<tr>";
+        for (let j = 2; j <= 9; j++) {
+            table += `<td>${i} x ${j} = ${i * j}</td>`;
+        }
+        table += "</tr>";
+    }
+
+    document.getElementById("bang").innerHTML = table;
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trò chơi đoán số</title>
+</head>
+<body>
+<button onclick="start()">Chơi</button>
+
+<script>
+    function start() {
+        let max = +prompt("Nhập khoảng bạn muốn đoán (từ 0 đến ...):");
+        if (isNaN(max) || max <= 0) {
+            alert("Vui lòng nhập một số hợp lệ lớn hơn 0!");
+            return;
+        }
+        let random = Math.floor(Math.random() * (max + 1));
+        console.log("Số bí mật:", random);
+        for (let i = 1; i <= 3; i++) {
+            let guess = +prompt(`Lần ${i}/3 - Hãy đoán số (0 - ${max}):`);
+            if (isNaN(guess)) {
+                alert("Bạn phải nhập số!");
+                i--;
+                continue;
+            }
+            if (guess === random) {
+                alert("Chúc mừng! Bạn đã đoán đúng!");
+                return;
+            } else if (guess > random && i < 3) {
+                alert("Số bạn đoán lớn hơn. Thử lại!");
+            } else if (guess < random && i < 3) {
+                alert("Số bạn đoán bé hơn. Thử lại!");
+            } else if (i === 3) {
+                alert(`Bạn đã thua! Số đúng là ${random}`);
+            }
+        }
+    }
+</script>
+</body>
+</html>
