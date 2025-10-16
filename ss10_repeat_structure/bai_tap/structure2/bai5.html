@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let P = 10000000;
+    let r = 0.8 / 100;
+    let n = 12;
+    let P0 = P;
+
+    for (let i = 1; i <= n; i++) {
+        let interest = P * r;
+        P += interest;
+        console.log(`
+        Tháng ${i}: Lãi = ${interest.toFixed(0)} VNĐ, Tổng = ${P.toFixed(0)} VNĐ`);
+    }
+    let totalInterest = P - P0;
+    console.log(`
+    Tổng tiền lãi: ${totalInterest.toFixed(0)} VNĐ`);
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.write("<pre>")
+    let width = +prompt("Nhập chiều dài:");
+    let height = +prompt("Nhập chiều rộng:");
+    let rectangle = "";
+
+    for (let i = 1; i <= height; i++) {
+        for (let j = 1; j <= width; j++) {
+            if (i === 1 || i === height || j === 1 || j === width){
+                rectangle += "*";
+            } else {
+                rectangle += " ";
+            }
+        }
+        rectangle += "\n";
+    }
+
+    document.write(rectangle);
+    document.write("</pre>");
+</script>
+</body>
+</html>

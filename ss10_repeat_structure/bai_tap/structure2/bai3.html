@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.write("<pre>");
+    for (let i = 1; i <= 5; i++) {
+        document.write("*".repeat(i) + " ".repeat(5 - i) + "<br>");
+    }
+    for (let i = 5; i >= 1; i--) {
+        document.write("*".repeat(i) + " ".repeat(5 - i) + "<br>");
+    }
+    for (let i = 1; i <= 5; i++) {
+        document.write("&nbsp;".repeat(5 - i) + "*".repeat(i) + "<br>");
+    }
+    for (let i = 5; i >= 1; i--) {
+        document.write("&nbsp;".repeat(5 - i) + "*".repeat(i) + "<br>");
+    }
+    document.write("</pre>")
+</script>
+</body>
+</html>
