@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Sample Screen: <br>
+    <input type="text" id="txtValue">
+    <button id="btnAdd" value="Add" onclick="add_array();">Add</button>
+    <button id="btnDisplay" value="Display" onclick="display_array()">Display</button>
+    <div id="result"></div>
+</label>
+
+</body>
+<script>
+    let x = 0;
+    let array = Array();
+
+    function add_array() {
+        array[x] = document.getElementById("txtValue").value;
+        alert("Element" + x + " = " + array[x] + "add!");
+        x++;
+        document.getElementById("txtValue").value = "";
+    }
+
+    function display_array() {
+        let e = "<hr/>";
+        for (let i = 0; i < array.length; i++) {
+            e += "Element" + i + " = " + array[i] + "<br/>";
+        }
+        document.getElementById("result").innerHTML = e;
+    }
+</script>
+</html>

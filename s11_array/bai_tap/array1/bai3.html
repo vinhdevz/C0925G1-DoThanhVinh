@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = [5, 12, 6, 9, 22];
+    let maxValue = numbers[0];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > maxValue) maxValue = numbers[i];
+    }
+    alert("Mảng: " + numbers);
+    alert("Giá trị lớn nhất: " + maxValue);
+
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    let avg = sum / numbers.length;
+    alert("Giá trị trung bình: " + avg);
+</script>
+</body>
+</html>
