@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    let arr = [1, 2, 3,4,1, 4, 16];
+    alert("Mảng: " + arr);
+    if (arr.length % 2 !== 0) {
+        alert("False");
+    } else {
+        let half = arr.length / 2;
+        let isValid = true;
+
+        for (let i = 0; i < half; i++) {
+            if (arr[i] * arr[i] !== arr[half + i]) {
+                isValid = false;
+                break;
+            }
+        }
+
+        if (isValid) {
+            alert("True");
+        } else {
+            alert("False");
+        }
+    }
+
+</script>
+</body>
+</html>

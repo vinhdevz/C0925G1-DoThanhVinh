@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, "a", 3, "c", 5, "x", 6, "s", 8, "q"];
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let ch = arr[i];
+        if (ch >= '0' && ch <= '9') {
+            count++;
+        }
+    }
+    alert("Mảng ký tự: " + arr.join(","));
+    alert("Số ký tự là số (0-9) là: " + count);
+</script>
+</body>
+</html>

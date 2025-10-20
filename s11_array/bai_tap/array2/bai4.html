@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập:");
+    str = str.trim();
+    if (str === "") {
+        alert("Số từ trong chuỗi : 0");
+    } else {
+        let word = str.split(/\s+/).length;
+        alert("Số từ trong chuỗi :" + word);
+    }
+</script>
+</body>
+</html>

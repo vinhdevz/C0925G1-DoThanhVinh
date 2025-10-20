@@ -10,8 +10,6 @@
     let result = "";
 
     for (let i = 0; i < input.length; i++) {
-        let current = parseInt(input[i]);
-        let next = parseInt(input[i + 1]);
         result += input[i];
         if (parseInt(input[i]) % 2 === 0 && i < input.length - 1) {
             result += "-";
