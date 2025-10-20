@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let n = +prompt("Nhập số nguyên cần đảo:");
+    let dao = 0;
+
+    while (n > 0){
+        let du = n % 10;
+        dao = dao * 10 + du;
+        n = Math.floor(n / 10);
+    }
+    alert("Số đảo ngược là:" + dao);
+</script>
 </body>
 </html>

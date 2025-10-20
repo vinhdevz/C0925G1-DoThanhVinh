@@ -9,10 +9,11 @@
     let str = prompt("Nhập:");
     str = str.trim();
     if (str === "") {
-        alert("Số từ trong chuỗi : 0");
+        alert("Số từ trong chuỗi: 0");
     } else {
-        let word = str.split(/\s+/).length;
-        alert("Số từ trong chuỗi :" + word);
+        let words = str.split(" ");
+        let filtered = words.filter(word => word !== "");
+        alert("Số từ trong chuỗi: " + filtered.length);
     }
 </script>
 </body>

@@ -1,10 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<button onclick="moMenu()">Menu</button>
+<script>
+    function moMenu() {
+        let luaChon;
+        let tongTien = 0;
+        let soCafe = 0,
+            soCaCao = 0,
+            soNuocCam = 0;
+
+        do {
+            let danhSach1 = "";
+            if (soCafe > 0) danhSach1 += ` Cafe x${soCafe}\n`;
+            if (soCaCao > 0) danhSach1 += ` CaCao x${soCaCao}\n`;
+            if (soNuocCam > 0) danhSach1 += ` NuocCam x${soNuocCam}\n`;
+
+            luaChon = prompt(
+                "----------Menu----------\n" +
+                "Hãy nhập số để chọn đồ uống:\n" +
+                "1.Cafe:     10K\n" +
+                "2.Ca cao:   15K\n" +
+                "3.Nước cam: 20K\n" +
+                "4.Kết thúc\n" +
+                "-----Danh sách đã chọn-----\n" + danhSach1 +
+                "\nTổng tiền: " + tongTien + "K"
+            );
+            switch (luaChon) {
+                case "1":
+                    soCafe++;
+                    tongTien += 10;
+                    break;
+                case "2":
+                    soCaCao++;
+                    tongTien += 15;
+                    break;
+                case "3":
+                    soNuocCam++;
+                    tongTien += 20;
+                    break;
+                case "4":
+                    const xacNhan = confirm("Bạn có chắc chăn muốn thoát chương trình không?");
+                    if (xacNhan) {
+                        let danhSach2 = "";
+                        if (soCafe > 0) danhSach2 += ` Cafe x${soCafe} = ${soCafe * 10}K\n`;
+                        if (soCaCao > 0) danhSach2 += ` CaCao x${soCaCao} = ${soCaCao * 15}K\n`;
+                        if (soNuocCam > 0) danhSach2 += ` NuocCam x${soNuocCam} = ${soNuocCam * 20}K\n`;
+
+                        alert("Cảm ơn bạn! Tổng hóa đơn là: " + tongTien + "K\nĐồ uống bạn chọn:\n" + danhSach2);
+                    } else {
+                        luaChon = "tieptuc";
+                    }
+                    break;
+                default:
+                    alert("Vui lòng chọn từ 1 đến 4.");
+            }
+        } while (luaChon !== "4");
+    }
+</script>
 </body>
 </html>

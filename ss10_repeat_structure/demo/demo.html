@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        td{
+            border: 1px solid black;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        caption{
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
+<table id="bang"></table>
 <script>
     // for(var i = 1; i <= 10; i++){
     //     var product = 5 * i;
@@ -47,12 +59,21 @@
     //     index++;
     // }
     // while (index <= 10);
-    let x = 1 , i;
-    for ( i = 0 ; i < 3 ; i = i + 2){
-        x = x + 1;
+    // let x = 1 , i;
+    // for ( i = 0 ; i < 3 ; i = i + 2){
+    //     x = x + 1;
+    // }
+    // console.log(x);
+    // console.log(i);
+    let table = `<caption> Bảng cửu chương 2 -> 9</caption>`;
+    for (let i = 2; i <= 9; i++) {
+        table += "<tr>";
+        for (let j = 2; j <= 9; j++) {
+            table += `<td>${i} x ${j} = ${i * j}</td>`;
+        }
+        table += "</tr>";
     }
-    console.log(x);
-    console.log(i);
+    document.getElementById("bang").innerHTML = table;
 </script>
 </body>
 </html>

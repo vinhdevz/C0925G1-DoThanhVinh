@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let a = +prompt("Nhập số a:");
+    let b = +prompt("Nhập số b:");
+
+    function UCLN(a, b) {
+        while (b !== 0) {
+            let r = a % b;
+            a = b;
+            b = r;
+        }
+        return a;
+    }
+
+    let ucln = UCLN(a, b);
+    let bcnn = (a * b) / ucln;
+    alert("UCLN của " + a + " và " + b + " là: " + ucln + "\nBCNN là: " + bcnn);
+
+</script>
 </body>
 </html>

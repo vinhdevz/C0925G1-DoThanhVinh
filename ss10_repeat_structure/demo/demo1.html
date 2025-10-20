@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Quản lý sinh viên</title>
 </head>
 <body>
-$END$
+<script>
+    let chon;
+    do {
+        chon = prompt(
+            `-------Quản lý sinh viên-------
+Hãy nhập số để chọn đồ uống
+1.Hiển thị danh sách sinh viên
+2.Thêm mới sinh viên
+3.Xóa sinh viên
+4.Kết thúc chương trình`
+        );
+        switch (chon) {
+            case "1":
+                alert("Hiển thị danh sách sinh viên!");
+                break;
+            case "2":
+                alert("Thêm mới sinh viên!");
+                break;
+            case "3":
+                alert("Xóa sinh viên!");
+                break;
+            case "4":
+                const xacNhan = confirm("Bạn có muốn chắc chắn thoát chương trình không?");
+                if (xacNhan) {
+                    alert("Chương trình đã kết thúc!");
+                } else {
+                    chon = " ";
+                }
+                break;
+            default:
+                if (chon !== null)
+                    alert("Vui lòng chọn số 1 đến số 4!");
+        }
+    } while (chon !== "4" || (chon === 4 && confirm("Bạn có muốn chắc chắn thoát chương trình không?") === false));
+</script>
 </body>
 </html>
