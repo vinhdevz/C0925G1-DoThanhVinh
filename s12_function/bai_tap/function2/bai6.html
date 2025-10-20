@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function soNguyenDuong(n) {
+        return Number.isInteger(n) && n > 0;
+    }
+
+    let n = parseFloat(prompt("Nhập số: "));
+    if (soNguyenDuong(n)) {
+        alert("True");
+    } else {
+        alert("False");
+    }
+</script>
+</body>
+</html>

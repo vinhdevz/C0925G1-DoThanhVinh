@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược mảng</title>
+</head>
+<body>
+<script>
+    function daoNguoc(mang) {
+        return mang.slice().reverse();
+    }
+    let nhap = prompt("Nhập các số nguyên, cách nhau bằng dấu phẩy:");
+    let mangSo = nhap.split(",").map(x => parseInt(x.trim()));
+    let ketQua = daoNguoc(mangSo);
+
+    alert(`Mảng ban đầu: [${mangSo.join(", ")}]
+            Mảng đảo ngược: [${ketQua.join(", ")}]`);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function doiCho(a, b) {
+        let temp = a;
+        a = b;
+        b = temp;
+        return [a, b];
+    }
+
+    let so1 = parseInt(prompt("Nhập số thứ nhất: "));
+    let so2 = parseInt(prompt("Nhập số thứ hai: "));
+
+    [so1, so2] = doiCho(so1, so2);
+    alert(`Sau khi đổi chỗ : số 1 = ${so1}, số 2 = ${so2}`);
+</script>
+</body>
+</html>

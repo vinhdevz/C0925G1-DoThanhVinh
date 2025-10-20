@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhập a: ");
+    let b = +prompt("Nhập b: ");
+
+    let sum = array(a, b);
+    if (sum !== undefined) {
+        alert("Tổng của 2 tham số: " + sum);
+    }
+
+    function array(a, b) {
+        if (a > b) {
+            alert("Tham số 1 lớn hơn tham số 2!");
+        } else {
+            return a + b;
+        }
+    }
+</script>
+</body>
+</html>

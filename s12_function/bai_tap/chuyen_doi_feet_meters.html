@@ -5,6 +5,21 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    let feet = +prompt("Nhập foot cần chuyển đổi: ");
+    function footToMeters(feet) {
+        return feet * 0.305;
+    }
+    let meters = footToMeters(feet);
+    alert(feet + " feet = " + meters.toFixed(3) + " meters");
 
+
+    let meter = +prompt("Nhập meters cần chuyển đổi: ");
+    function meterToFeet(meter){
+        return meter * 3.279;
+    }
+    let feets = meterToFeet(meter);
+    alert(meter + " meter = " + feets.toFixed(3) + " feets");
+</script>
 </body>
 </html>
