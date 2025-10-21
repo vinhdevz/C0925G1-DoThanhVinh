@@ -6,15 +6,21 @@
 </head>
 <body>
 <script>
-    function daoNguoc(mang) {
-        return mang.slice().reverse();
-    }
-    let nhap = prompt("Nhập các số nguyên, cách nhau bằng dấu phẩy:");
-    let mangSo = nhap.split(",").map(x => parseInt(x.trim()));
-    let ketQua = daoNguoc(mangSo);
+    let nhap = prompt("Nhập các số nguyên: ");
+    let phanTu = nhap.split(",");
+    let mangSo = [];
 
-    alert(`Mảng ban đầu: [${mangSo.join(", ")}]
-Mảng đảo ngược: [${ketQua.join(", ")}]`);
+    for (let i = 0; i < phanTu.length; i++) {
+        mangSo.push(parseInt(phanTu[i].trim()));
+    }
+
+    let ketQua = [];
+    for (let i = 0; i < mangSo.length; i++) {
+        ketQua.unshift(mangSo[i]);
+    }
+
+    alert(` Mảng ban đầu: [${mangSo.join(", ")}]
+    Mảng đảo ngược: [${ketQua.join(", ")}]`);
 </script>
 </body>
 </html>
