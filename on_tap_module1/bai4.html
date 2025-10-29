@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input, button {
+            padding: 5px;
+            margin: 3px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 6px;
+            text-align: center;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Thêm sản phẩm</h3>
+
+<div>
+    <input id="ma" placeholder="Mã máy">
+    <input id="ten" placeholder="Tên máy">
+    <input id="hang" placeholder="Tên hãng sản xuất">
+    <input id="gia" placeholder="Giá bán">
+    <button id="btnThem" onclick="themMayTinh()">Thêm mới</button>
+</div>
+
+<h4>Danh sách sản phẩm (<span id="quantity"></span>)</h4>
+<div id="result"></div>
+
+<script>
+    class MayTinh {
+        constructor(ma, ten, hang, gia) {
+            this._ma = ma;
+            this._ten = ten;
+            this._hang = hang;
+            this._gia = parseFloat(gia);
+        }
+
+        getMa() {
+            return this._ma;
+        }
+
+        getTen() {
+            return this._ten;
+        }
+
+        getHang() {
+            return this._hang;
+        }
+
+        getGia() {
+            return this._gia;
+        }
+
+        toString() {
+            return `Mã: ${this._ma}, Tên: ${this._ten}, Hãng: ${this._hang}, Giá: ${this._gia.toLocaleString()}đ`;
+        }
+    }
+
+    let dsMayTinh = [];
+
+    display(dsMayTinh);
+
+    function themMayTinh() {
+        let ma = document.getElementById("ma").value.trim();
+        let ten = document.getElementById("ten").value.trim();
+        let hang = document.getElementById("hang").value.trim();
+        let gia = document.getElementById("gia").value.trim();
+
+        if (ma && ten && hang && gia) {
+            dsMayTinh.push(new MayTinh(ma, ten, hang, gia));
+            hienLai();
+            display(dsMayTinh);
+        } else {
+            alert("Không được để trống!");
+        }
+    }
+
+    function hienLai() {
+        document.getElementById("ma").value = "";
+        document.getElementById("ten").value = "";
+        document.getElementById("hang").value = "";
+        document.getElementById("gia").value = "";
+    }
+
+    function display(ds) {
+        ds.sort((a, b) => b.getGia() - a.getGia());
+        let html = `<table>
+    <tr><th>STT</th><th>Mã</th><th>Tên</th><th>Hãng</th><th>Giá</th></tr>`;
+        ds.forEach((p, i) => {
+            html += `<tr>
+      <td>${i + 1}</td>
+      <td>${p.getMa()}</td>
+      <td>${p.getTen()}</td>
+      <td>${p.getHang()}</td>
+      <td>${p.getGia().toLocaleString()}đ</td>
+    </tr>`;
+        });
+        html += `</table>`;
+        document.getElementById("result").innerHTML = html;
+        document.getElementById("quantity").innerText = ds.length;
+    }
+</script>
+
+</body>
+</html>
