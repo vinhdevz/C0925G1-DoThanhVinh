@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let h = parseInt(prompt("Nhập chiều cao:"));
+    let output = "";
+
+    for (let i = 1; i <= h; i++) {
+        for (let j = 1; j < h - i; j++) {
+            output += " ";
+        }
+        for (let k = 1; k <= 2 * i - 1; k++) {
+            if (i === h || k === 1 || k === 2 * i - 1) {
+                output += "*";
+            } else {
+                output += " ";
+            }
+        }
+        output += "\n";
+    }
+    console.log(output)
+</script>
+</body>
+</html>

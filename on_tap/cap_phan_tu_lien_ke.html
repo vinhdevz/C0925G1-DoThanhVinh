@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài kiểm tra cặp phần tử liền kề</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập độ dài mảng (n là số chẵn):"));
+
+    if (n % 2 !== 0) {
+        alert("Vui lòng nhập số chẵn!");
+    } else {
+        let arr = [];
+
+        for (let i = 0; i < n; i++) {
+            let value = parseFloat(prompt(`Nhập phần tử thứ ${i + 1}:`));
+            arr.push(value);
+        }
+
+        alert("Mảng vừa nhập: " + arr.join(", "));
+
+        let ok = true;
+        for (let i = 0; i < arr.length - 1; i += 2) {
+            if (!(arr[i] < arr[i + 1])) {
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok) {
+            alert("Kết quả: OK");
+        } else {
+            alert("Kết quả: NO");
+        }
+    }
+</script>
+</body>
+</html>

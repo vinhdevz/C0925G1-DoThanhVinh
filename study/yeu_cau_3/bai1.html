@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function prefixSums(a) {
+        let b = [];
+        let currentSum = 0;
+
+        for (let i = 0; i < a.length; i++) {
+            currentSum += a[i];
+            b.push(currentSum);
+        }
+        return b;
+    }
+
+    let a = [1, 2, 3];
+    let b = prefixSums(a);
+    console.log(b);
+</script>
+</body>
+</html>

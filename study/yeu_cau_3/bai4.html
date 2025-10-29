@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input = prompt("Nhập số từ bàn phím");
+    let numToWord = {
+        '0': 'không',
+        '1': 'một',
+        '2': 'hai',
+        '3': 'ba',
+        '4': 'bốn',
+        '5': 'năm',
+        '6': 'sáu',
+        '7': 'bảy',
+        '8': 'tám',
+        '9': 'chín'
+    };
+    let result = [];
+
+    if (!/^\d+$/.test(input)) { //Regex giúp kiểm tra xem người dùng có nhập toàn chữ số hay không
+        alert("Vui lòng nhập số nguyên dương!");
+    } else {
+        for (let i = 0; i < input.length; i++) {
+            result.push(numToWord[input[i]]);
+        }
+        alert(result.join(" "));
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm (OOP)</title>
+</head>
+<body>
+<h2>Quản lý sản phẩm</h2>
+Tên sản phẩm: <input type="text" id="productName">
+<button onclick="addProduct()">Thêm</button>
+
+<!-- Khu vực hiển thị danh sách -->
+<h3>Danh sách sản phẩm:</h3>
+<div id="productList"></div>
+
+<script>
+    // Định nghĩa lớp Product
+    class Product {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+
+    // Định nghĩa lớp ProductManager để quản lý danh sách sản phẩm
+    class ProductManager {
+        constructor() {
+            this.products = [];
+        }
+
+        addProduct(product) {
+            this.products.push(product);
+            this.displayProducts();
+        }
+
+        editProduct(index, newName) {
+            this.products[index].name = newName;
+            this.displayProducts();
+        }
+
+        deleteProduct(index) {
+            this.products.splice(index, 1);
+            this.displayProducts();
+        }
+
+        displayProducts() {
+            let html = "<table border='1' cellspacing='0' cellpadding='5'><tr><th>STT</th><th>Tên sản phẩm</th><th>Hành động</th></tr>";
+            for (let i = 0; i < this.products.length; i++) {
+                html += `<tr>
+                            <td>${i + 1}</td>
+                            <td>${this.products[i].name}</td>
+                            <td>
+                                <button onclick="editProduct(${i})">Sửa</button>
+                                <button onclick="deleteProduct(${i})">Xóa</button>
+                            </td>
+                         </tr>`;
+            }
+            html += "</table>";
+
+            document.getElementById("productList").innerHTML = html;
+        }
+    }
+
+    // Khởi tạo đối tượng quản lý sản phẩm
+    let manager = new ProductManager();
+
+    // Hàm thêm sản phẩm
+    function addProduct() {
+        let name = document.getElementById("productName").value.trim();
+        if (name === "") {
+            alert("Vui lòng nhập tên sản phẩm!");
+            return;
+        }
+        let product = new Product(name);
+        manager.addProduct(product);
+        document.getElementById("productName").value = "";
+    }
+
+    // Hàm sửa sản phẩm
+    function editProduct(index) {
+        let newName = prompt("Nhập tên mới:", manager.products[index].name);
+        if (newName !== null && newName.trim() !== "") {
+            manager.editProduct(index, newName);
+        }
+    }
+
+    // Hàm xóa sản phẩm
+    function deleteProduct(index) {
+        if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+            manager.deleteProduct(index);
+        }
+    }
+</script>
+</body>
+</html>

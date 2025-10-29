@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ hình chữ nhật bằng dấu *</title>
+</head>
+<body>
+<script>
+    let x = parseInt(prompt("Nhập chiều dài (số hàng):"));
+    let y = parseInt(prompt("Nhập chiều rộng (số cột):"));
+    let output = "";
+
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < y; j++) {
+            if (i === 0 || i === x - 1 || j === 0 || j === y - 1) {
+                output += "*";
+            } else {
+                output += " ";
+            }
+        }
+        output += "\n";
+    }
+
+    console.log(output);
+</script>
+</body>
+</html>

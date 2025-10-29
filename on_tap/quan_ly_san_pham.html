@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input, button {
+            padding: 5px;
+            margin: 3px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 6px;
+            text-align: center;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Thêm / Sửa sản phẩm</h3>
+
+<div>
+    <input id="id" placeholder="Mã sản phẩm">
+    <input id="name" placeholder="Tên sản phẩm">
+    <input id="price" placeholder="Giá sản phẩm">
+    <button id="btnAdd" onclick="addNewProduct()">Thêm mới</button>
+    <button id="btnUpdate" onclick="updateProduct()" style="display:none;">Cập nhật</button>
+</div>
+
+<h4>Danh sách sản phẩm (<span id="quantity"></span>)</h4>
+<div>
+    <input id="searchName" placeholder="Tìm theo tên">
+    <button onclick="searchProduct()">Tìm kiếm</button>
+</div>
+
+<div id="result"></div>
+
+<script>
+    class Product {
+        constructor(id, name, price) {
+            this._id = id;
+            this._name = name;
+            this._price = parseFloat(price);
+        }
+
+        getId() {
+            return this._id;
+        }
+
+        getName() {
+            return this._name;
+        }
+
+        getPrice() {
+            return this._price;
+        }
+
+        setId(v) {
+            this._id = v;
+        }
+
+        setName(v) {
+            this._name = v;
+        }
+
+        setPrice(v) {
+            this._price = parseFloat(v);
+        }
+    }
+
+    let productList = [
+        new Product(1, "Máy bay", 1000),
+        new Product(2, "Oto", 100),
+        new Product(3, "Xe máy", 50)
+    ];
+    let editingIndex = -1;
+
+    display(productList);
+
+    function addNewProduct() {
+        let id = document.getElementById("id").value.trim();
+        let name = document.getElementById("name").value.trim();
+        let price = document.getElementById("price").value.trim();
+
+        if (id && name && price) {
+            productList.push(new Product(id, name, price));
+            clearInput();
+            display(productList);
+        } else {
+            alert("Không được để trống!");
+        }
+    }
+
+    function deleteByIndex(index) {
+        if (confirm(`Xóa sản phẩm ${productList[index].getName()}?`)) {
+            productList.splice(index, 1);
+            display(productList);
+        }
+    }
+
+    function editByIndex(index) {
+        let product = productList[index];
+        document.getElementById("id").value = product.getId();
+        document.getElementById("name").value = product.getName();
+        document.getElementById("price").value = product.getPrice();
+
+        editingIndex = index;
+        document.getElementById("btnAdd").style.display = "none";
+        document.getElementById("btnUpdate").style.display = "inline";
+    }
+
+    function updateProduct() {
+        let id = document.getElementById("id").value.trim();
+        let name = document.getElementById("name").value.trim();
+        let price = document.getElementById("price").value.trim();
+
+        if (id && name && price && editingIndex >= 0) {
+            productList[editingIndex].setId(id);
+            productList[editingIndex].setName(name);
+            productList[editingIndex].setPrice(price);
+
+            clearInput();
+            display(productList);
+
+            document.getElementById("btnAdd").style.display = "inline";
+            document.getElementById("btnUpdate").style.display = "none";
+            editingIndex = -1;
+        } else {
+            alert("Vui lòng nhập đầy đủ thông tin!");
+        }
+    }
+
+    function searchProduct() {
+        let keyword = document.getElementById("searchName").value.trim().toLowerCase();
+        let filtered = productList.filter(p => p.getName().toLowerCase().includes(keyword));
+        display(filtered);
+    }
+
+    function display(list) {
+        list.sort((a, b) => b.getPrice() - a.getPrice());
+        let html = `<table>
+      <tr><th>STT</th><th>Mã</th><th>Tên</th><th>Giá</th><th>Sửa</th><th>Xóa</th></tr>`;
+        list.forEach((p, i) => {
+            html += `<tr>
+        <td>${i + 1}</td>
+        <td>${p.getId()}</td>
+        <td>${p.getName()}</td>
+        <td>${p.getPrice()}</td>
+        <td><button onclick="editByIndex(${i})">Sửa</button></td>
+        <td><button onclick="deleteByIndex(${i})">Xóa</button></td>
+      </tr>`;
+        });
+        html += `</table>`;
+        document.getElementById("result").innerHTML = html;
+        document.getElementById("quantity").innerText = list.length;
+    }
+
+    function clearInput() {
+        document.getElementById("id").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("price").value = "";
+    }
+</script>
+
+</body>
+</html>

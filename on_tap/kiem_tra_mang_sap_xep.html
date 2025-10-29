@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 - Kiểm tra mảng sắp xếp</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập độ dài mảng:"));
+    let arr = [];
+
+    for (let i = 0; i < n; i++) {
+        let value = parseFloat(prompt(`Nhập phần tử thứ ${i + 1}:`));
+        arr.push(value);
+    }
+
+    document.write("Mảng vừa nhập: " + arr.join(", ") + "<br>");
+
+    function isAscending(a) {
+        for (let i = 0; i < a.length - 1; i++) {
+            if (a[i] > a[i + 1]) return false;
+        }
+        return true;
+    }
+
+    function isDescending(a) {
+        for (let i = 0; i < a.length - 1; i++) {
+            if (a[i] < a[i + 1]) return false;
+        }
+        return true;
+    }
+
+    if (isAscending(arr) || isDescending(arr)) {
+        document.write("Kết quả: OK");
+    } else {
+        document.write("Kết quả: NO");
+    }
+</script>
+</body>
+</html>

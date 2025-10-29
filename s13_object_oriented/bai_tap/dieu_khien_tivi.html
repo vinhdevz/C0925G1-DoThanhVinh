@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class TiVi {
+        constructor() {
+            this.channel = 1;
+            this.volume = 10;
+            this.status = false;
+        }
+
+        turnOn() {
+            this.status = true;
+            console.log("Tivi đã bật!");
+        }
+
+        turnOff() {
+            this.status = false;
+            console.log("Tivi đã tắt!");
+        }
+
+        changeChannel(channelNumber) {
+            if (this.status) {
+                this.channel = channelNumber;
+                console.log(` Chuyển đến kênh ${this.channel}`);
+            } else {
+                console.log("Không thể đổi kênh vì TiVi đang tắt!");
+            }
+        }
+
+        adjustVolume(amount) {
+            if (this.status) {
+                this.volume += amount;
+                if (this.volume < 0) this.volume = 0;
+                console.log(` Âm lượng hiện tại: ${this.volume}`);
+            } else {
+                console.log("Không thể chỉnh âm thanh vì TiVi đang tắt!");
+            }
+        }
+
+        showStatus() {
+            console.log(` Trạng thái TiVi:
+            - Bật: ${this.status ? "Y" : "N"}
+            - Kênh: ${this.channel}
+            - Âm lượng: ${this.volume}
+            `);
+        }
+    }
+
+    class Remote {
+        constructor(code) {
+            this.code = code;
+        }
+
+        turnOn(tv) {
+            console.log(`Remote ${this.code} bật TiVi`);
+            tv.turnOn();
+        }
+
+        turnOff(tv) {
+            console.log(`Remote ${this.code} tắt TiVi`);
+            tv.turnOff();
+        }
+
+        changeChannel(tv, channelNumber) {
+            console.log(`Remote ${this.code} chuyển đến kênh ${channelNumber}`);
+            tv.changeChannel(channelNumber);
+        }
+
+        changeVolume(tv, amount) {
+            console.log(`Remote ${this.code} điều chỉnh âm lượng ${amount > 0 ? "Tăng" : "Giảm"} ${Math.abs(amount)} đơn vị!`);
+            tv.adjustVolume(amount);
+        }
+    }
+
+    let myTV = new TiVi();
+    let myRemote = new Remote("RMTV1");
+
+    myTV.turnOn();
+    myTV.changeChannel(7);
+    myRemote.changeChannel(myTV, 3);
+    myRemote.changeVolume(myTV, 2);
+    myRemote.turnOff(myTV);
+
+    console.log("Trạng thái cuối:");
+    myTV.showStatus();
+</script>
+</body>
+</html>

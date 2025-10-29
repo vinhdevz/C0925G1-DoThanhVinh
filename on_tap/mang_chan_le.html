@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập độ dài mảng:"));
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let value = parseInt(prompt(` Nhập phần tử thứ ${i + 1}:`));
+        arr.push(value);
+    }
+    alert("Mảng vừa nhập là : " + arr.join(", "));
+
+    let chan = 0, le = 0;
+    for (let x of arr) {
+        if (x % 2 === 0)
+            chan++;
+        else
+            le++;
+    }
+
+    if (chan === le) {
+        alert("OK")
+    } else {
+        alert("NO")
+    }
+</script>
+</body>
+</html>

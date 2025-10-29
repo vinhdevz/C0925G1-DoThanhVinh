@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tam giác cân đặc</title>
+</head>
+<body>
+</body>
+<script>
+    let h = parseInt(prompt("Nhập chiều cao:"));
+    let output = "";
+
+    for (let i = 1; i <= h; i++) {
+        for (let j = 1; j <= h - i; j++) {
+            output += " ";
+        }
+        for (let k = 1; k <= 2 * i - 1; k++) {
+            output += "*";
+        }
+        output += "\n";
+    }
+    console.log(output);
+</script>
+</html>

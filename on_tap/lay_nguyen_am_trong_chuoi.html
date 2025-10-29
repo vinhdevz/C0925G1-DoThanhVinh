@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lấy nguyên âm trong chuỗi</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        let vowels = ['a', 'e', 'i', 'o', 'u'];
+        let result = [];
+
+        for (let ch of str) {
+            let lowerCh = ch.toLowerCase();
+            if (vowels.includes(lowerCh)) {
+                result.push(ch);
+            }
+        }
+
+        return result;
+    }
+    let input = prompt("Nhập chuỗi cần kiểm tra:");
+    let output = checkString(input);
+
+    document.write("Chuỗi vừa nhập: " + input + "<br>");
+    document.write("Các nguyên âm có trong chuỗi: " + output.join(", "));
+</script>
+</body>
+</html>

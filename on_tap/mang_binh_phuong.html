@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng bình phương</title>
+</head>
+<body>
+<script>
+    function checkArray(arr) {
+        if (arr.length % 2 !== 0) {
+            return false;
+        }
+        let half = arr.length / 2;
+        for (let i = 0; i < half; i++) {
+            if (arr[half + i] !== arr[i] * arr[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    console.log(checkArray([1, 2, 3, 1, 4, 9]));
+    console.log(checkArray([2, 3, 1, 1, 9]));
+    console.log(checkArray([1, 2, 3, 1, 4, 8]));
+</script>
+</body>
+</html>

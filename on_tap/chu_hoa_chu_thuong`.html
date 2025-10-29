@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        let upper = 0;
+        let lower = 0;
+
+        for (let ch of str) {
+            if (ch >= 'A' && ch <= 'Z') {
+                upper++;
+            } else if (ch >= 'a' && ch <= 'z') {
+                lower++;
+            }
+        }
+        return upper === lower;
+    }
+
+    let input = prompt("Nhập chuỗi cần kiểm tra:");
+    let result = checkString(input);
+
+    alert("Chuỗi vừa nhập: " + input);
+    alert("Kết quả: " + result);
+</script>
+</body>
+</html>

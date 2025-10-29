@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Rat {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.isAlive = true;
+        }
+
+        speak() {
+            console.log(`${this.name} : "Chít chít!`);
+        }
+    }
+
+    class Cat {
+        constructor(name, weight, maxSpeed) {
+            this.name = name;
+            this.weight = weight;
+            this.maxSpeed = maxSpeed;
+        }
+
+        speak() {
+            console.log(`${this.name}: "Meo Meo!"`);
+        }
+
+        catchRat(rat) {
+            console.log(`${this.name} đang cố bắt ${rat.name}`);
+            if (this.maxSpeed > rat.speed) {
+                console.log(`${this.name} đã bắt được ${rat.name}`);
+                this.eatRat(rat);
+            } else {
+                console.log(`${rat.name} chạy nhanh quá và đã trốn thoát!`);
+            }
+        }
+
+        eatRat(rat) {
+            if (rat.isAlive) {
+                console.log(`${this.name} ăn ${rat.name}`);
+                this.weight += rat.weight;
+                rat.isAlive = false;
+                console.log(`Sau khi ăn, ${this.name} nặng ${this.weight.toFixed(2)} kg!`);
+            } else {
+                console.log(`${rat.name} đã chết , không thể ăn được!`);
+            }
+        }
+    }
+
+    let rat1 = new Rat("Jerry", 0.2, 10);
+    let rat2 = new Rat("Monkey", 0.5, 20);
+    let cat = new Cat("Tom", 4.8, 15);
+
+    rat1.speak();
+    rat2.speak();
+    cat.speak();
+
+    cat.catchRat(rat1);
+    cat.catchRat(rat2);
+
+    console.log("Trạng thái của tom sau khi ăn: ");
+    console.log(`${cat.name}: ${cat.weight.toFixed(2)} kg!`);
+    console.log(`${rat1.name}: ${rat1.isAlive ? "Sống" : "Chết"}`);
+    console.log(`${rat2.name}: ${rat2.isAlive ? "Sống" : "Chết"}`);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chon;
+    let gia = {
+        1: {ten: "Cafe", donGia: 15000},
+        2: {ten: "Cam vắt", donGia: 25000},
+        3: {ten: "Nước ép cà rốt", donGia: 20000},
+        4: {ten: "Nước ép cà chua", donGia: 20000},
+        5: {ten: "Nước lọc", donGia: 5000},
+        6: {ten: "Nước dừa", donGia: 30000},
+    };
+    do {
+        chon = prompt(`
+Hãy chọn số để chọn đồ uống
+1.Cafe - 15000đ
+2.Cam vắt - 25000đ
+3.Nước ép cà rốt - 20000đ
+4.Nước ép cà chua - 20000đ
+5.Nước lọc - 5000đ
+6.Nước dừa - 30000đ
+7.Kết thúc chương trình`);
+        if (chon === null) break;
+        switch (chon) {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+                let doUong = gia[chon];
+                alert(` Bạn đã chọn: ${doUong.ten}\n Đơn giá: ${doUong.donGia.toLocaleString()} đ`);
+                let soLuong = parseInt(prompt(` Nhập số lượng ${doUong.ten} bạn muốn mua:`));
+                if (isNaN(soLuong) || soLuong <= 0) {
+                    alert("Số lượng không hợp lệ!");
+                    break;
+                }
+
+                let tongTien = doUong.donGia * soLuong;
+                alert(` Tổng tiền bạn phải trả cho ${soLuong} ${doUong.ten} là: ${tongTien.toLocaleString()}đ`);
+                break;
+            case "7":
+                const xacNhan = confirm("Bạn có chắc chắn muốn thoát chương trình không?");
+                if (xacNhan) {
+                    alert("Cảm ơn bạn.Chương trình kết thúc!")
+                } else {
+                    chon = " ";
+                }
+                break;
+            default:
+                alert("Vui lòng nhập số từ 1 đến 7!");
+        }
+
+    } while (chon !== "7");
+</script>
+</body>
+</html>
