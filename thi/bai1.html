@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function bai1() {
+        let arr = prompt("Nhập mảng số nguyên:").split(",").map(Number);
+
+        if (arr.length % 3 !== 0 || arr.length > 15) {
+            return alert("n phải là bội của 3 và nhỏ hơn hoặc bằng 15!");
+        }
+
+        let ok = true;
+        for (let i = 0; i < arr.length; i += 3) {
+            let [a, b, c] = [arr[i], arr[i + 1], arr[i + 2]].sort((x, y) => x - y);
+            console.log(`Nhóm ${i / 3 + 1}: [${a}, ${b}, ${c}]`,
+                a * a + b * b === c * c ? "Vuông" : "Không vuông");
+            if (a * a + b * b !== c * c) ok = false;
+        }
+
+        alert(ok ? "OK" : "NO");
+    }
+
+    bai1();
+</script>
+</body>
+</html>

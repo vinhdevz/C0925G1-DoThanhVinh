@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý danh bạ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input, button {
+            padding: 5px;
+            margin: 3px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 6px;
+            text-align: center;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Quản lý danh bạ</h2>
+
+<!--<div>-->
+<!--    <input type="text" id="soDienThoai" placeholder="Số điện thoại">-->
+<!--    <input type="text" id="ten" placeholder="Tên">-->
+<!--    <input type="text" id="diaChi" placeholder="Địa chỉ">-->
+<!--    <button onclick="themDanhBa()">Thêm</button>-->
+<!--</div>-->
+
+<h4>Danh sách điện thoại (<span id="quantity"></span>)</h4>
+<div id="result"></div>
+
+<script>
+    class DanhBa {
+        constructor(soDienThoai, ten, diaChi) {
+            this.soDienThoai = soDienThoai;
+            this.ten = ten;
+            this.diaChi = diaChi;
+        }
+    }
+
+    class QuanLyDanhBa {
+        constructor() {
+            this.danhSach = [];
+        }
+
+        themDanhBa(db) {
+            this.danhSach.push(db);
+        }
+
+        xoaDanhBa(soDienThoai) {
+            this.danhSach = this.danhSach.filter(db => db.soDienThoai !== soDienThoai);
+        }
+
+        layDanhSach() {
+            return this.danhSach;
+        }
+    }
+
+    const qlDanhBa = new QuanLyDanhBa();
+    qlDanhBa.themDanhBa(new DanhBa("0774824631", "Đỗ Thành Vinh", "Quảng Trị"));
+    qlDanhBa.themDanhBa(new DanhBa("0334039783", "Lê Ánh Tuyết", "Đà Nẵng"));
+
+    function hienThi(ds) {
+        let html = `<table>
+                          <tr>
+                            <th>STT</th>
+                            <th>Số điện thoại</th>
+                            <th>Tên</th>
+                            <th>Địa chỉ</th>
+                            <th>Hành động</th>
+                          </tr>`;
+
+        ds.forEach((db, i) => {
+            html += `
+                    <tr>
+                      <td>${i + 1}</td>
+                      <td>${db.soDienThoai}</td>
+                      <td>${db.ten}</td>
+                      <td>${db.diaChi}</td>
+                      <td><button onclick="xoa('${db.soDienThoai}')">Xoá</button></td>
+                    </tr>`;
+        });
+        html += `</table>`;
+        document.getElementById("result").innerHTML = html;
+        document.getElementById("quantity").innerText = ds.length;
+    }
+
+    // function themDanhBa() {
+    //     const so = document.getElementById("soDienThoai").value.trim();
+    //     const ten = document.getElementById("ten").value.trim();
+    //     const diaChi = document.getElementById("diaChi").value.trim();
+    //
+    //     if (!so || !ten || !diaChi) {
+    //         alert("Vui lòng nhập đầy đủ thông tin!");
+    //         return;
+    //     }
+    //
+    //     qlDanhBa.themDanhBa(new DanhBa(so, ten, diaChi));
+    //
+    //     document.getElementById("soDienThoai").value = "";
+    //     document.getElementById("ten").value = "";
+    //     document.getElementById("diaChi").value = "";
+    //
+    //     hienThi(qlDanhBa.layDanhSach());
+    // }
+
+    function xoa(soDienThoai) {
+        if (confirm("Bạn có chắc muốn xoá số " + soDienThoai + " không?")) {
+            qlDanhBa.xoaDanhBa(soDienThoai);
+            hienThi(qlDanhBa.layDanhSach());
+        }
+    }
+
+    hienThi(qlDanhBa.layDanhSach());
+</script>
+
+</body>
+</html>

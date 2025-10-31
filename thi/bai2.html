@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function taoVietTat(str) {
+        let words = str.trim().split(/\s+/).filter(w => w.length > 0);
+        if (words.length === 1) {
+            return "Chuỗi chỉ có 1 từ nên không viết tắt";
+        }
+        return words.map(w => w[0].toUpperCase()).join(""); 
+    }
+
+    alert(taoVietTat("Vinh"));
+    alert(taoVietTat("do thanh vinh"));
+
+</script>
+</body>
+</html>
