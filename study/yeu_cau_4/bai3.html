@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function commonCharacterCount(s1, s2) {
+        let count = {};
+        for (let ch of s1) {
+            count[ch] = (count[ch] || 0) + 1;
+        }
+
+        let commonCount = 0;
+        for (let ch of s2) {
+            if (count[ch] > 0) {
+                commonCount++;
+                count[ch]--;
+            }
+        }
+        return commonCount;
+    }
+
+    function main() {
+        let s1 = prompt("Nhập xâu kí tự 1: ");
+        let s2 = prompt("Nhập xâu kí tự 2: ");
+        alert("Xâu 1: " + s1 + "\nXâu 2: " + s2);
+        let result = commonCharacterCount(s1, s2);
+        alert("Số lượng ký tự chung của 2 xâu là: " + result);
+    }
+
+    main();
+</script>
 </body>
 </html>

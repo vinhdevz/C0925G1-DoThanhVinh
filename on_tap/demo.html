@@ -1,10 +1,390 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="vi">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Bài 1 - Mảng và chỉ số nguyên tố</title>-->
+<!--    <script>-->
+<!--        function isPrime(num) {-->
+<!--            if (num < 2) return false;-->
+<!--            for (let i = 2; i <= Math.sqrt(num); i++) {-->
+<!--                if (num % i === 0) return false;-->
+<!--            }-->
+<!--            return true;-->
+<!--        }-->
+
+<!--        function bai1() {-->
+<!--            let n = parseInt(prompt("Nhập số phần tử của mảng (n <= 50):"));-->
+<!--            if (isNaN(n) || n <= 0 || n > 50) {-->
+<!--                alert("❌ Số phần tử không hợp lệ (phải trong khoảng 1–50).");-->
+<!--                return;-->
+<!--            }-->
+
+<!--            let arr = [];-->
+<!--            for (let i = 0; i < n; i++) {-->
+<!--                arr.push(parseInt(prompt(`Nhập phần tử thứ ${i}:`)));-->
+<!--            }-->
+
+<!--            document.write(`<h3>Mảng bạn nhập: [${arr.join(", ")}]</h3>`);-->
+
+<!--            let sum = 0;-->
+<!--            let listPrimeIndexes = [];-->
+
+<!--            for (let i = 0; i < arr.length; i++) {-->
+<!--                if (isPrime(i)) {-->
+<!--                    sum += arr[i];-->
+<!--                    listPrimeIndexes.push(arr[i]);-->
+<!--                }-->
+<!--            }-->
+
+<!--            document.write(`<p>Các phần tử ở vị trí index nguyên tố: ${listPrimeIndexes.join(" + ")}</p>`);-->
+<!--            document.write(`<h3>Tổng = ${sum}</h3>`);-->
+<!--        }-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body onload="bai1()"></body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="vi">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Bài 2 - Đếm ký tự Hoa / Thường</title>-->
+<!--    <script>-->
+<!--        function countLetters(str) {-->
+<!--            if (str.trim() === "") return [0, 0];-->
+
+<!--            let upper = 0, lower = 0;-->
+<!--            for (let char of str) {-->
+<!--                if (char === " ") continue;-->
+<!--                if (char >= "A" && char <= "Z") upper++;-->
+<!--                else if (char >= "a" && char <= "z") lower++;-->
+<!--            }-->
+<!--            return [upper, lower];-->
+<!--        }-->
+
+<!--        function bai2() {-->
+<!--            let input = prompt("Nhập chuỗi cần kiểm tra:");-->
+<!--            let [upper, lower] = countLetters(input);-->
+<!--            document.write(`<h3>Chuỗi: "${input}"</h3>`);-->
+<!--            document.write(`<p>Kết quả: [${upper}, ${lower}]</p>`);-->
+<!--            document.write(`<p>➡️ ${upper} ký tự in HOA, ${lower} ký tự in thường.</p>`);-->
+<!--        }-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body onload="bai2()"></body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="vi">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Tìm số Fibonacci trong mảng</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script>-->
+<!--    // Hàm kiểm tra số Fibonacci-->
+<!--    function isFibonacci(num) {-->
+<!--        if (num < 0) return false;-->
+<!--        // Dãy Fibonacci bắt đầu: 0, 1, 1, 2, 3, 5, 8, ...-->
+<!--        let a = 0, b = 1;-->
+<!--        while (b < num) {-->
+<!--            let temp = a + b;-->
+<!--            a = b;-->
+<!--            b = temp;-->
+<!--        }-->
+<!--        return b === num || num === 0;-->
+<!--    }-->
+
+<!--    // Nhập mảng từ bàn phím-->
+<!--    let n = +prompt("Nhập số phần tử của mảng:");-->
+<!--    let arr = [];-->
+<!--    for (let i = 0; i < n; i++) {-->
+<!--        arr.push(+prompt(`Nhập phần tử thứ ${i + 1}:`));-->
+<!--    }-->
+
+<!--    // Lọc ra các số Fibonacci trong mảng-->
+<!--    let fiboArr = arr.filter(isFibonacci);-->
+
+<!--    // Sắp xếp tăng dần-->
+<!--    fiboArr.sort((a, b) => a - b);-->
+
+<!--    // Hiển thị kết quả-->
+<!--    document.write("Mảng ban đầu: " + arr.join(", ") + "<br>");-->
+<!--    document.write("Các số Fibonacci (tăng dần): " + fiboArr.join(", "));-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="vi">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Bài 4 - Quản lý Máy tính</title>-->
+<!--    <script>-->
+<!--        class MayTinh {-->
+<!--            constructor(ma, ten, hang, gia) {-->
+<!--                this._ma = ma;-->
+<!--                this._ten = ten;-->
+<!--                this._hang = hang;-->
+<!--                this._gia = gia;-->
+<!--            }-->
+
+<!--            // Getter & Setter-->
+<!--            get ma() { return this._ma; }-->
+<!--            set ma(value) { this._ma = value; }-->
+
+<!--            get ten() { return this._ten; }-->
+<!--            set ten(value) { this._ten = value; }-->
+
+<!--            get hang() { return this._hang; }-->
+<!--            set hang(value) { this._hang = value; }-->
+
+<!--            get gia() { return this._gia; }-->
+<!--            set gia(value) { this._gia = value; }-->
+
+<!--            toString() {-->
+<!--                return `Mã: ${this._ma}, Tên: ${this._ten}, Hãng: ${this._hang}, Giá: ${this._gia.toLocaleString()}₫`;-->
+<!--            }-->
+<!--        }-->
+
+<!--        function bai4() {-->
+<!--            let dsMayTinh = [];-->
+
+<!--            let soLuong = parseInt(prompt("Nhập số lượng máy tính cần thêm:"));-->
+<!--            for (let i = 0; i < soLuong; i++) {-->
+<!--                let ma = prompt("Nhập mã máy:");-->
+<!--                let ten = prompt("Nhập tên máy:");-->
+<!--                let hang = prompt("Nhập hãng sản xuất:");-->
+<!--                let gia = parseFloat(prompt("Nhập giá bán:"));-->
+<!--                dsMayTinh.push(new MayTinh(ma, ten, hang, gia));-->
+<!--            }-->
+
+<!--            document.write("<h3>Danh sách máy tính:</h3>");-->
+<!--            dsMayTinh.forEach(mt => {-->
+<!--                document.write(`<p>${mt.toString()}</p>`);-->
+<!--            });-->
+<!--        }-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body onload="bai4()"></body>-->
+<!--</html>-->
+
+<script>
+    function bai1() {
+        let arr = prompt("Nhập mảng số nguyên, cách nhau bởi dấu phẩy:")
+            .split(",").map(Number);
+
+        if (arr.length % 3 !== 0 || arr.length > 15) {
+            return alert("❌ n phải là bội của 3 và nhỏ hơn hoặc bằng 15!");
+        }
+
+        let ok = true;
+        for (let i = 0; i < arr.length; i += 3) {
+            let [a, b, c] = [arr[i], arr[i+1], arr[i+2]].sort((x, y) => x - y);
+            console.log(`Nhóm ${i/3 + 1}: [${a}, ${b}, ${c}]`,
+                a*a + b*b === c*c ? "✔️ Vuông" : "❌ Không vuông");
+            if (a*a + b*b !== c*c) ok = false;
+        }
+
+        alert(ok ? "OK ✅ Tất cả nhóm đều là tam giác vuông" : "NO ❌ Có nhóm không hợp lệ");
+    }
+</script>
+
+
+
+
+
+<!--<script>-->
+<!--    function taoVietTat(str) {-->
+<!--        let words = str.trim().split(/\s+/).filter(w => w.length > 0);-->
+<!--        if (words.length < 2) {-->
+<!--            return "Chuỗi chỉ có 1 từ nên không cần viết tắt";-->
+<!--        }-->
+<!--        return words.map(w => w[0].toUpperCase()).join("");-->
+<!--    }-->
+
+<!--    // Test-->
+<!--    console.log(taoVietTat("object oriented programming")); // OOP-->
+<!--    console.log(taoVietTat("ObjectOriented")); // Chuỗi chỉ có 1 từ...-->
+<!--</script>-->
+
+
+
+<!--<script>-->
+<!--    function timCapHopLe(arr) {-->
+<!--        let result = [];-->
+<!--        for (let i = 0; i < arr.length - 2; i++) {-->
+<!--            if (arr[i] + arr[i + 1] === arr[i + 2]) {-->
+<!--                result.push([arr[i], arr[i + 1]]);-->
+<!--            }-->
+<!--        }-->
+<!--        result.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]));-->
+<!--        return result;-->
+<!--    }-->
+
+<!--    // Test-->
+<!--    let arr = [1,5,6,11,9,20,8,0,8,1];-->
+<!--    console.log("Kết quả:", timCapHopLe(arr));-->
+<!--</script>-->
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="vi">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Quản lý danh bạ</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            margin: 20px;-->
+<!--        }-->
+
+<!--        input, button {-->
+<!--            padding: 5px;-->
+<!--            margin: 3px;-->
+<!--        }-->
+
+<!--        table {-->
+<!--            width: 100%;-->
+<!--            border-collapse: collapse;-->
+<!--            margin-top: 10px;-->
+<!--        }-->
+
+<!--        th, td {-->
+<!--            border: 1px solid #999;-->
+<!--            padding: 6px;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        th {-->
+<!--            background: #eee;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<h2>Quản lý danh bạ</h2>-->
+
+<!--&lt;!&ndash; Form nhập &ndash;&gt;-->
+<!--<div>-->
+<!--    <input type="text" id="soDienThoai" placeholder="Số điện thoại">-->
+<!--    <input type="text" id="ten" placeholder="Tên">-->
+<!--    <input type="text" id="diaChi" placeholder="Địa chỉ">-->
+<!--    <button onclick="themDanhBa()">Thêm</button>-->
+<!--</div>-->
+
+<!--<h4>Danh sách điện thoại (<span id="quantity"></span>)</h4>-->
+<!--<div id="result"></div>-->
+
+<!--<script>-->
+<!--    class DanhBa {-->
+<!--        constructor(soDienThoai, ten, diaChi) {-->
+<!--            this.soDienThoai = soDienThoai;-->
+<!--            this.ten = ten;-->
+<!--            this.diaChi = diaChi;-->
+<!--        }-->
+<!--    }-->
+
+<!--    class QuanLyDanhBa {-->
+<!--        constructor() {-->
+<!--            this.danhSach = [];-->
+<!--        }-->
+
+<!--        themDanhBa(db) {-->
+<!--            this.danhSach.push(db);-->
+<!--        }-->
+
+<!--        xoaDanhBa(soDienThoai) {-->
+<!--            this.danhSach = this.danhSach.filter(db => db.soDienThoai !== soDienThoai);-->
+<!--        }-->
+
+<!--        layDanhSach() {-->
+<!--            return this.danhSach;-->
+<!--        }-->
+<!--    }-->
+
+<!--    // Khởi tạo danh sách mẫu-->
+<!--    const qlDanhBa = new QuanLyDanhBa();-->
+<!--    qlDanhBa.themDanhBa(new DanhBa("0774824631", "Đỗ Thành Vinh", "Quảng Trị"));-->
+<!--    qlDanhBa.themDanhBa(new DanhBa("0334039783", "Lê Ánh Tuyết", "Đà Nẵng"));-->
+
+<!--    // Hiển thị danh sách-->
+<!--    function hienThi(ds) {-->
+<!--        let html = `<table>-->
+<!--      <tr>-->
+<!--        <th>STT</th>-->
+<!--        <th>Số điện thoại</th>-->
+<!--        <th>Tên</th>-->
+<!--        <th>Địa chỉ</th>-->
+<!--        <th>Hành động</th>-->
+<!--      </tr>`;-->
+
+<!--        ds.forEach((db, i) => {-->
+<!--            html += `-->
+<!--        <tr>-->
+<!--          <td>${i + 1}</td>-->
+<!--          <td>${db.soDienThoai}</td>-->
+<!--          <td>${db.ten}</td>-->
+<!--          <td>${db.diaChi}</td>-->
+<!--          <td><button onclick="xoa('${db.soDienThoai}')">Xoá</button></td>-->
+<!--        </tr>`;-->
+<!--        });-->
+
+<!--        html += `</table>`;-->
+<!--        document.getElementById("result").innerHTML = html;-->
+<!--        document.getElementById("quantity").innerText = ds.length;-->
+<!--    }-->
+
+<!--    function themDanhBa() {-->
+<!--        const so = document.getElementById("soDienThoai").value.trim();-->
+<!--        const ten = document.getElementById("ten").value.trim();-->
+<!--        const diaChi = document.getElementById("diaChi").value.trim();-->
+
+<!--        if (!so || !ten || !diaChi) {-->
+<!--            alert("Vui lòng nhập đầy đủ thông tin!");-->
+<!--            return;-->
+<!--        }-->
+
+<!--        qlDanhBa.themDanhBa(new DanhBa(so, ten, diaChi));-->
+
+<!--        // reset form-->
+<!--        document.getElementById("soDienThoai").value = "";-->
+<!--        document.getElementById("ten").value = "";-->
+<!--        document.getElementById("diaChi").value = "";-->
+
+<!--        hienThi(qlDanhBa.layDanhSach());-->
+<!--    }-->
+
+<!--    function xoa(soDienThoai) {-->
+<!--        if (confirm("Bạn có chắc muốn xoá số " + soDienThoai + " không?")) {-->
+<!--            qlDanhBa.xoaDanhBa(soDienThoai);-->
+<!--            hienThi(qlDanhBa.layDanhSach());-->
+<!--        }-->
+<!--    }-->
+
+<!--    // hiển thị ban đầu-->
+<!--    hienThi(qlDanhBa.layDanhSach());-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!--function timCapHopLe(arr) {-->
+<!--const result = [];-->
+<!--for (let i = 0; i < arr.length - 2; i++)-->
+<!--if (arr[i] + arr[i + 1] === arr[i + 2]) result.push([arr[i], arr[i + 1]]);-->
+<!--return result.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]));-->
+<!--}-->
+
+<!--console.log(timCapHopLe([1,5,6,11,9,20,8,0,8,1]));-->

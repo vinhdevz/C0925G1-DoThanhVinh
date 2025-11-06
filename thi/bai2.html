@@ -7,11 +7,11 @@
 <body>
 <script>
     function taoVietTat(str) {
-        let words = str.trim().split(/\s+/).filter(w => w.length > 0);
+        let words = str.trim().split(/\s+/).filter(w => w.length > 0); //Xử lý khoảng trống dư thừa,
         if (words.length === 1) {
             return "Chuỗi chỉ có 1 từ nên không viết tắt";
         }
-        return words.map(w => w[0].toUpperCase()).join(""); 
+        return words.map(w => w[0].toUpperCase()).join(""); //Duyệt các phần tử , lấy chữ cái đầu chuyển sang chữ hoa
     }
 
     alert(taoVietTat("Vinh"));

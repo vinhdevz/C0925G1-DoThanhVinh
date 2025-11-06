@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-
+<!--Nhập 1 mảng từ bàn phím với độ dài n
+Hiện thị mảng sau khi thêm mới các phần tử
+"Đếm số lượng số có giá trị bằng giá trinh trung bình của mảng."
+"Ví dụ [1,2,2,3,3,5,4,4] => số lượng số bằng với giá trị trung bình của các phần tử trong mảng  là 2 ( vì giá trị trung bình các phần tử trong mảng là 3=> số 3 xuất hiện 2 lần)"
+-->
 </body>
+<script>
+    let n = parseInt(prompt("Nhập mảng từ bàn phím: "));
+    let arr = [];
+
+    for (let i = 0; i < n; i++) {
+        let value = parseFloat(prompt("Nhập phần tử thứ: " + (i + 1) + ":"));
+        arr.push(value);
+    }
+    alert("Mảng sau khi nhập: " + arr.join(", "));
+
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+
+    let avg = sum / arr.length;
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === avg) {
+            count++;
+        }
+    }
+    alert("Giá trị trung bình của mảng: " + avg);
+    alert("Số phần tử bằng giá trị trung bình là: " + count);
+
+</script>
 </html>

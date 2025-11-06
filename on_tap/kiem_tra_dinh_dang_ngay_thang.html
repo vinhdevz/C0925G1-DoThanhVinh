@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+<!--Viết hàm truyền vào tham số là một chuỗi.. checkDate(dateString)
+Kiểm tra xem chuối nhập vào dateString có phải là định dạng của ngày tháng năm hay không ( dd/mm/yyyy)
+Nếu đúng return true, sai return false-->
 <body>
-$END$
+<script>
+    function checkDate(dateString) {
+        return /^\d{2}\/\d{2}\/\d{4}$/.test(dateString);
+    }
+
+    let input = prompt("Nhập ngày tháng năm theo định dạng (dd/mm/yyyy): ");
+    alert("Kết quả kiểm tra: " + checkDate(input));
+</script>
 </body>
 </html>

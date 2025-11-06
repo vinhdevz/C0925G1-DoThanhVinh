@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function chuanHoaXau(str) {
+        let word = str.trim().split(/\s+/);
+        word = word.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+        return word.join(" ");
+    }
+
+    function timTuDaiNhat(str) {
+        let words = str.trim().split(/\s+/);
+        let longest = words[0];
+        for (let word of words) {
+            if (word.length > longest.length) {
+                longest = word;
+            }
+        }
+        return longest;
+    }
+
+    function main() {
+        let input = prompt("Nhập vào xâu ký tự");
+        alert("Xâu ban đầu: " + input);
+        let chuanHoa = chuanHoaXau(input);
+        alert("Xâu sau khi chuẩn hóa: " + chuanHoa);
+        let tuDaiNhat = timTuDaiNhat(input);
+        alert("Từ dài nhất: " + tuDaiNhat);
+    }
+
+    main();
+</script>
 </body>
 </html>

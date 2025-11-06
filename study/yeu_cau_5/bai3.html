@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let arr = [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10],
+        [11, 12, 13, 14]
+    ];
+
+    let flatArr = arr.flat();
+    let max = Math.max(...flatArr);
+    let min = Math.min(...flatArr);
+
+    alert("Giá trị lớn nhất: " + max);
+    alert("Giá trị nhỏ nhất: " + min);
+</script>
 </body>
 </html>

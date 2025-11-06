@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>So sánh 2 phân số</title>
+</head>
+<body>
+<script>
+    function soSanhPhanSo(tu1,tu2) {
+        let array=tu1.split("/");
+        let array2=tu2.split("/");
+        if(array[1]===0 || array2[1]===0){
+            alert("mẫu không được bằng 0");
+        }
+        return array[0]*array2[1]===array2[0]*array[1];
+
+    }
+
+    function main() {
+        let tu1 = prompt("Nhập tử số của phân số thứ nhất:");
+        let tu2 = prompt("Nhập tử số của phân số thứ hai:");
+        if(soSanhPhanSo(tu1,tu2)){
+            alert("true");
+        }else {
+            alert("false");
+        }
+    }
+
+    main();
+</script>
+</body>
+</html>

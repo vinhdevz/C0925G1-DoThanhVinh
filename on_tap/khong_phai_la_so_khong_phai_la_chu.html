@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+<!--Viết 1 hàm truyền vào 1 tham số (với tham số là một chuỗi), (checkString(str))
+"Hàm trả về mảng các ký tự không phải là số[0,….9] và không phải là ký tự alphabet[a…z,A,…Z]"-->
 <body>
-$END$
+<script>
+    function checkString(str) {
+        let result = [];
+        for (let i = 0; i < str.length; i++) {
+            let char = str[i];
+            if (!(/[a-zA-Z0-9]/.test(char))) {
+                result.push(char);
+            }
+        }
+        return result;
+    }
+
+    let s = prompt("Nhập chuỗi cần kiểm tra: ");
+    let kq = checkString(s);
+    alert("Các ký tự đặc biệt trong chuỗi là: " + kq.join(", "));
+</script>
 </body>
 </html>

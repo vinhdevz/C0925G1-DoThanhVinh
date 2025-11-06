@@ -5,30 +5,40 @@
     <title>Title</title>
 </head>
 <body>
+<!--Bài 3: Viết hàm có tham số truyền vào là một mảng ,tìm các số fibonaci có trong
+mảng(số này đã làm bài tập ở jame). Hàm trả về 1 mảng số fibonaci được tìm thấy
+trong mảng ( Yêu cầu sắp xếp tăng dần).
+   Gợi ý đây là dãy số fibonaci: 0,1,1,2,3,5,8,13,21,.....-->
 <script>
-    function isFibo(num) {
+    function isFibon(num) {
         if (num < 0) return false;
-        let a = 0;
-        let b = 1;
-        while (b < num) {
-            let temp = a + b;
+        let a = 0, b = 1;
+        if (num === 0 || num === 1) return true;
+        for (let i = 2; ; i++) {
+            let c = a + b;
+            if (c === num) return true;
+            if (c > num) return false;
             a = b;
-            b = temp;
+            b = c;
         }
-        return b === num || num === 0;
     }
 
-    let n = +prompt("Nhập số phần tử của mảng: ");
-    let arr = [];
-    for (let i = 0; i < n; i++) {
-        arr.push(+prompt(` Nhập phần tử thứ ${i + 1}:`));
+    function findFibon(arr) {
+        let fibArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (isFibon(arr[i])) {
+                fibArr.push(arr[i]);
+            }
+        }
+        fibArr.sort(function (a, b) {
+            return a - b;
+        });
+        return fibArr;
     }
 
-    let fiboArr = arr.filter(isFibo);
-    fiboArr.sort((a, b) => a - b);
-    alert("Mảng ban đầu: " + arr.join(", "));
-    alert("Các số fibo tăng dần: " + arr.join(", "));
-
+    let arr = [4,8,5,21,7,13,2];
+    let result = findFibon(arr);
+    alert(result);
 </script>
 </body>
 </html>

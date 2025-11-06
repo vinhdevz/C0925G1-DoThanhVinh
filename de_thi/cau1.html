@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Mảng số nguyên và số nguyên tố</title>
+</head>
+<body>
+<script>
+    function isPrime(num) {
+        if (num < 2) return false;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) return false;
+        }
+        return true;
+    }
+
+    function main() {
+        let n = parseInt(prompt("Nhập số phần tử của mảng (n ≤ 50): "));
+        if (isNaN(n) || n <= 0 || n > 50) {
+            alert("Giá trị n không hợp lệ!");
+            return;
+        }
+
+        let a = [];
+        for (let i = 0; i < n; i++) {
+            a.push(parseInt(prompt(`Nhập phần tử a[${i}]:`)));
+        }
+
+        alert(`Mảng vừa nhập: [${a.join(", ")}]`);
+
+        let b = a.filter(x => isPrime(x));
+
+        if (b.length > 0) {
+            alert(`Các số nguyên tố trong mảng: [${b.join(", ")}]`);
+        } else {
+            alert("Không có số nguyên tố nào trong mảng!");
+        }
+    }
+
+    main();
+</script>
+</body>
+</html>

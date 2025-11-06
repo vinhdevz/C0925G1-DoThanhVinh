@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function tinhTongChan() {
+        let m = parseInt(prompt("Nhập số: "));
+        let n = parseInt(prompt("Nhập số: "));
+        let input = prompt(` Nhập ${m * n} phần tử của ma trận:`);
+        let numbers = input.split(" ").map(Number);
+
+        let sum = 0;
+        for (let numb of numbers) {
+            if (numb % 2 === 0) {
+                sum += numb;
+            }
+        }
+        alert("Tổng các số chẵn trong ma trận là: " + sum);
+    }
+
+    tinhTongChan();
+
+</script>
 </body>
 </html>

@@ -15,7 +15,7 @@
 
         let ok = true;
         for (let i = 0; i < arr.length; i += 3) {
-            let [a, b, c] = [arr[i], arr[i + 1], arr[i + 2]].sort((x, y) => x - y);
+            let [a, b, c] = [arr[i], arr[i + 1], arr[i + 2]].sort((x, y) => x - y); //Chia mảng thành từng nhóm 3 phần tử.
             console.log(`Nhóm ${i / 3 + 1}: [${a}, ${b}, ${c}]`,
                 a * a + b * b === c * c ? "Vuông" : "Không vuông");
             if (a * a + b * b !== c * c) ok = false;

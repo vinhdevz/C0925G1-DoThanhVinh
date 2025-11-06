@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    function differentSymbolsNaive(str) {
+        let uniqueChars = new Set();
+        for (let ch of str) {
+            uniqueChars.add(ch);
+        }
+        return uniqueChars.size;
+    }
+
+    function main() {
+        let s = prompt("Nhập vào xâu ký tự: ");
+        alert("Xâu vừa nhập: " + s);
+        let count = differentSymbolsNaive(s);
+        alert("Số lượng ký tự khác nhau trong xâu: " + count);
+    }
+
+    main();
+</script>
 </body>
 </html>

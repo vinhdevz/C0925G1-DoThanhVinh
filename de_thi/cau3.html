@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sổ tiết kiệm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input, button {
+            padding: 5px;
+            margin: 3px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 6px;
+            text-align: center;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Thêm sổ tiết kiệm</h3>
+
+<div>
+    <input id="ma" placeholder="Mã sổ tiết kiệm">
+    <input id="loai" placeholder="Loại tiết kiệm">
+    <input id="ten" placeholder="Họ tên khách hàng">
+    <input type="number" id="cmnd" placeholder="Chứng minh nhân dân">
+    <input type="date" id="ngay">
+    <input type="number" id="tien" placeholder="Số tiền gửi">
+    <button onclick="addThem()">Thêm mới</button>
+</div>
+
+<h4>Danh sách sổ tiết kiệm (<span id="quantity"></span>)</h4>
+<div id="result"></div>
+
+<script>
+    let danhSach = [
+        {ma: "STK01", loai: "Ngắn hạn", ten: "Nguyễn Văn A", cmnd: 123456789, ngay: "2024-02-13", tien: 32000000},
+        {ma: "STK02", loai: "Dài hạn", ten: "Trần Thị B", cmnd: 987654321, ngay: "2024-05-10", tien: 50000000}
+    ];
+
+    display();
+
+    function addThem() {
+        let ma, loai, ten, cmnd, ngay, tien;
+
+        while (true) {
+            ma = document.getElementById("ma").value.trim();
+            if (ma && ma.length <= 5) break;
+            alert("Mã sổ không hợp lệ (tối đa 5 ký tự)!");
+            return;
+        }
+
+        while (true) {
+            loai = document.getElementById("loai").value.trim();
+            if (loai && loai.length <= 10) break;
+            alert("Loại tiết kiệm không hợp lệ (tối đa 10 ký tự)!");
+            return;
+        }
+
+        while (true) {
+            ten = document.getElementById("ten").value.trim();
+            if (ten && ten.length <= 30) break;
+            alert("Họ tên không hợp lệ (tối đa 30 ký tự)!");
+            return;
+        }
+
+        while (true) {
+            cmnd = document.getElementById("cmnd").value.trim();
+            if (!isNaN(cmnd) && Number(cmnd) > 0) break;
+            alert("CMND phải là số dương!");
+            return;
+        }
+
+        while (true) {
+            ngay = document.getElementById("ngay").value.trim();
+            if (/^\d{4}-\d{2}-\d{2}$/.test(ngay)) break;
+            alert("Ngày mở sổ không hợp lệ!");
+            return;
+        }
+
+        while (true) {
+            tien = document.getElementById("tien").value.trim();
+            if (!isNaN(tien) && Number(tien) > 0) break;
+            alert("Số tiền gửi phải là số dương!");
+            return;
+        }
+
+        danhSach.push({ma, loai, ten, cmnd: Number(cmnd), ngay, tien: Number(tien)});
+        clearInput();
+        display();
+        alert("Thêm mới thành công!");
+    }
+
+    function deleteByIndex(i) {
+        let maMuonXoa = prompt("Nhâp mã tiết kiệm mà bạn muốn xóa!");
+        if (confirm(`Xóa sổ tiết kiệm của ${danhSach[i].ten}?`)) {
+            danhSach.splice(i, 1);
+            display();
+        }
+    }
+
+    function display() {
+        danhSach.sort((a, b) => b.tien - a.tien);
+        let html = `<table>
+            <tr>
+                <th>STT</th>
+                <th>Mã sổ</th>
+                <th>Loại</th>
+                <th>Họ tên KH</th>
+                <th>CMND</th>
+                <th>Ngày mở</th>
+                <th>Số tiền gửi</th>
+                <th>Xóa</th>
+            </tr>`;
+        danhSach.forEach((p, i) => {
+            html += `<tr>
+                <td>${i + 1}</td>
+                <td>${p.ma}</td>
+                <td>${p.loai}</td>
+                <td>${p.ten}</td>
+                <td>${p.cmnd}</td>
+                <td>${p.ngay}</td>
+                <td>${p.tien.toLocaleString()} đ</td>
+                <td><button onclick="deleteByIndex(${i})">Xóa</button></td>
+            </tr>`;
+        });
+        html += `</table>`;
+        document.getElementById("result").innerHTML = html;
+        document.getElementById("quantity").innerText = danhSach.length;
+    }
+
+    function clearInput() {
+        document.getElementById("ma").value = "";
+        document.getElementById("loai").value = "";
+        document.getElementById("ten").value = "";
+        document.getElementById("cmnd").value = "";
+        document.getElementById("ngay").value = "";
+        document.getElementById("tien").value = "";
+    }
+</script>
+
+</body>
+</html>

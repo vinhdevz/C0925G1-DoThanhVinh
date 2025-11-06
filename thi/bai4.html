@@ -33,8 +33,6 @@
 </head>
 <body>
 
-<h2>Quản lý danh bạ</h2>
-
 <!--<div>-->
 <!--    <input type="text" id="soDienThoai" placeholder="Số điện thoại">-->
 <!--    <input type="text" id="ten" placeholder="Tên">-->
@@ -42,7 +40,7 @@
 <!--    <button onclick="themDanhBa()">Thêm</button>-->
 <!--</div>-->
 
-<h4>Danh sách điện thoại (<span id="quantity"></span>)</h4>
+<h4>Danh sách điện thoại</h4>
 <div id="result"></div>
 
 <script>
@@ -75,6 +73,8 @@
     const qlDanhBa = new QuanLyDanhBa();
     qlDanhBa.themDanhBa(new DanhBa("0774824631", "Đỗ Thành Vinh", "Quảng Trị"));
     qlDanhBa.themDanhBa(new DanhBa("0334039783", "Lê Ánh Tuyết", "Đà Nẵng"));
+    qlDanhBa.themDanhBa(new DanhBa("0334039784", "Lê Thị Ánh Tuyết", "Huế"));
+
 
     function hienThi(ds) {
         let html = `<table>
@@ -98,7 +98,7 @@
         });
         html += `</table>`;
         document.getElementById("result").innerHTML = html;
-        document.getElementById("quantity").innerText = ds.length;
+        // document.getElementById("quantity").innerText = ds.length;
     }
 
     // function themDanhBa() {
